@@ -18,4 +18,5 @@ Execute `git clone https://github.com/aharshac/KandyPyLibExamples.git` in a term
 ### SMS.py
 Send SMS to a mobile number via Kandy.
 * Substitute **`<domain_api_key>, <domain_secret>, <user_id>`** with data from [Kandy Developer Dashboard](https://developer.kandy.io/)
+* Replace **`<source_phone_number>, <destination_phone_number>, <message>`** with personal data.
 * Execute `python SMS.py` in a terminal.
