@@ -33,7 +33,7 @@ class SMS:
         #   Get user access token
         print("Getting User Access Token")
         data = User.get_user_access_token(self.domain_api_key, self.domain_secret, self.user_id)
-        if data and data['status'] and data['status'] == 0 and data['result'] and data['result']['user_access_token']:
+        if data and data['status'] == 0 and data['result'] and data['result']['user_access_token']:
             self.user_access_token = data['result']['user_access_token']
             print("User Access Token: " + self.user_access_token)
         else:
