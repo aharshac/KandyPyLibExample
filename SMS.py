@@ -33,7 +33,7 @@ class SMS:
         #   Get user access token
         print("Getting User Access Token")
         data = User.get_user_access_token(self.domain_api_key, self.domain_secret, self.user_id)
-        if data and data['status'] == 0 and data['result'] and data['result']['user_access_token']:
+        if data and data['status'] and data['status'] == 0 and data['result'] and data['result']['user_access_token']:
             self.user_access_token = data['result']['user_access_token']
             print("User Access Token: " + self.user_access_token)
         else:
@@ -71,8 +71,19 @@ class SMS:
 
 
 def main():
-    sms = SMS("<domain_api_key>", "<domain_secret>", "<user_id>")
-    sms.send("<source_phone_number>", "<destination_phone_number>", "<message>")
+    domain_api_key = "<domain_api_key>"
+    domain_secret = "<domain_secret>"
+    user_id = "<user_id>"
+
+    source_phone_number = "<source_phone_number>"
+    destination_phone_number = "<destination_phone_number>"
+    message = "<message>"
+
+    try:
+        sms = SMS(domain_api_key, domain_secret, user_id)
+        sms.send(source_phone_number, destination_phone_number, message)
+    except Exception as e:
+      print('Error: ' + str(e))
 
 
 if __name__ == "__main__":
